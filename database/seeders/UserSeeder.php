@@ -16,14 +16,14 @@ class UserSeeder extends Seeder
     {
         $user = User::create([
             'name' => 'admin',
-            'email' => 'admin@innowaysit.com',
+            'email' => 'admin@jabsainfotech.com',
             'password' => 'password',
         ]);
         $user->assignRole('ADMIN');
 
         $user = User::create([
             'name' => 'user',
-            'email' => 'user@innowaysit.com',
+            'email' => 'user@jabsainfotech.com',
             'password' => 'password',
         ]);
         $user->assignRole('USER');
