@@ -1,0 +1,74 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ rootNamespace }}Models\{{ modelName }};
+use {{ request_path }}\StoreRequest;
+use {{ request_path }}\UpdateRequest;
+
+use Illuminate\Http\Request;
+
+class {{ class }} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        ${{ variable_in_plural }} = {{ modelName }}::all();
+        return view('{{ viewDirectory }}index', compact('{{ variable_in_plural }}'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('{{ viewDirectory }}create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreRequest $request)
+    {
+        ${{ variable_in_singular }} = {{ modelName }}::create($request->validated());
+
+        return redirect()->back()->withSuccess('Saved');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show({{ modelName }} ${{ variable_in_singular }})
+    {
+        return view('{{ viewDirectory }}show', compact('{{ variable_in_singular }}'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit({{ modelName }} ${{ variable_in_singular }})
+    {
+        return view('{{ viewDirectory }}edit', compact('{{ variable_in_singular }}'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateRequest $request, {{ modelName }} ${{ variable_in_singular }})
+    {
+        ${{ variable_in_singular }}->update($request->validated());
+
+        return redirect()->back()->withSuccess('Saved');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy({{ modelName }} ${{ variable_in_singular }})
+    {
+        //
+    }
+}
