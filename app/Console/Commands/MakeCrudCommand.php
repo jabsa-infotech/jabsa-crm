@@ -57,7 +57,7 @@ class MakeCrudCommand extends Command
                 '{{ messages }}'
             ],
             [
-                "{$modelName}StoreRequest",
+                "StoreRequest",
                 $requestNamespace . '\\' . $requestPath,
                 '',
                 ''
@@ -75,7 +75,7 @@ class MakeCrudCommand extends Command
         $storeRequestPath = $storeRequestDir . "/StoreRequest.php";
         file_put_contents($storeRequestPath, $storeRequestContent);
 
-        $this->info("{$modelName}StoreRequest created successfully.");
+        $this->info("{$modelName} StoreRequest created successfully.");
 
         // Generate UpdateRequest
         $updateRequestStub = $this->getStubContent('UpdateRequest');
@@ -87,7 +87,7 @@ class MakeCrudCommand extends Command
                 '{{ messages }}'
             ],
             [
-                "{$modelName}StoreRequest",
+                "UpdateRequest",
                 $requestNamespace . '\\' . $requestPath,
                 '',
                 ''
@@ -98,7 +98,7 @@ class MakeCrudCommand extends Command
         $updateRequestPath = $storeRequestDir . "/UpdateRequest.php";
         file_put_contents($updateRequestPath, $updateRequestContent);
 
-        $this->info("{$modelName}UpdateRequest created successfully.");
+        $this->info("{$modelName} UpdateRequest created successfully.");
     }
     // Request code ends
 
