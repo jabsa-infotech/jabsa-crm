@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
@@ -43,8 +45,7 @@ Route::group([
     // Admin Routes
     Route::group([
         'prefix' => 'admin',
-        'as' => 'admin.',
-        'middleware' => ['auth']
+        'as' => 'admin.'
     ], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -53,6 +54,10 @@ Route::group([
         Route::resource('users', UserController::class);
 
         Route::resource('blogs', AdminBlogController::class);
+        Route::resource('categories', CategoryController::class);
+        Route::resource('products', ProductController::class);
+
+
     });
     // User routes
 
