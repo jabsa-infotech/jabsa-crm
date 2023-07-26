@@ -74,6 +74,19 @@
                 </ul>
             </li>
 
+            <li class="sidebar-item @if (Route::currentRouteName() == 'admin.categories.index') active @endif">
+                <a href="{{ route('admin.categories.index') }}" class='sidebar-link'>
+                    <i class="bi bi-person"></i>
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li class="sidebar-item @if (Route::currentRouteName() == 'admin.products.index') active @endif">
+                <a href="{{ route('admin.products.index') }}" class='sidebar-link'>
+                    <i class="bi bi-person"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+
             <li class="sidebar-title">Profile</li>
 
             <li class="sidebar-item @if (Route::currentRouteName() == 'profile.edit') active @endif">
@@ -82,6 +95,7 @@
                     <span>Profile</span>
                 </a>
             </li>
+
 
             <li class="sidebar-item ">
                 <a href="{{ route('profile.show', auth()->user()->id) }}" class='sidebar-link'>
